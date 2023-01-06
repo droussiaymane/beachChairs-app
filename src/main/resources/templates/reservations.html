@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/main-layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Strandkorb Reservierungs-System</title>
+</head>
+
+<body>
+
+<main layout:fragment="content" th:remove="tag">
+
+    <h2>My reservations</h2>
+
+    <a href="/reservation" class="btn btn-success">new reservation</a>
+
+    <br/><br/>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr >
+                <th scope="col">Reservation id</th>
+                <th scope="col">price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each ="reservation : ${reservations}">
+                <td> <a
+
+                        th:utext="${reservation.reservierungsId}"></a> </td>
+                 <td th:utext="${reservation.preis}">...</td>
+             </tr>
+             </tbody>
+         </table>
+     </div>
+
+
+
+ </main>
+
+ </body>
+ </html>

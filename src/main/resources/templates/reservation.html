@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/main-layout}">
+
+<head>
+   <title>Strandkorb-Reservierung</title>
+</head>
+
+<body>
+<main layout:fragment="content" th:remove="tag">
+
+    <h2>Strandkorb-Reservierung</h2>
+    <hr/>
+    <h4>Bitte den Zeitraum der Reservierung eingeben.</h4>
+    <h6>Im Format dd-mm-yyyy hh-mm</h6>
+
+    <form class="form-control" th:action="@{/initReservation}" method="post" >
+        <table>
+            <tr class="form-group">
+                <td class="form-label">Beginn:</td>
+                <td><input class="form-control" type='datetime-local' name="begin" required ></td>
+            </tr>
+            <tr class="form-group">
+                <td class="form-label">End:</td>
+                <td><input class="form-control" type='datetime-local' name="end" required/></td>
+            </tr>
+            <tr>
+                <td><a href="/" class="btn btn-secondary">back</a></td>
+                <td><button type="submit" href="chairs" class="btn btn-primary">show Chairs</button></td>
+            </tr>
+        </table>
+    </form>
+
+
+
+</main>
+</body>
+</html>

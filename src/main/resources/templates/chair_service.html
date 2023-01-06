@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/main-layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Beach Chair Reservierungs-System</title>
+</head>
+
+<body>
+
+<main layout:fragment="content" th:remove="tag">
+
+    <h2>Verfügbare Services</h2>
+
+    <a href="/" class="btn btn-secondary">Zurück</a>
+
+    <br/><br/>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr >
+                <th scope="col">Name</th>
+                <th scope="col">preis</th>
+                <th scope="col">ID</th>
+                <th scope="col">Korb</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each ="service : ${service}">
+                <td th:utext="${service.name}">...</td>
+                <td th:utext="${service.preis}">...</td>
+                <td th:utext="${service.serviceId}">...</td>
+                <td th:utext="${service.beachChair}">...</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/main-layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title>Strandkorb Reservierungs-System</title>
+</head>
+
+<body>
+
+<main layout:fragment="content" th:remove="tag">
+
+    <h2>choose Chair</h2>
+    <table>
+        <tr class="form-group">
+            <td class="form-label">Begin date:</td>
+            <td><input class="form-control" type='datetime-local' disabled name='begin' th:attr="value = ${begin}"></td>
+        </tr>
+        <tr class="form-group">
+            <td class="form-label">End Date:</td>
+            <td><input class="form-control" type='datetime-local' disabled name='end' th:attr="value = ${end}"/></td>
+
+    <br/><br/>
+        </tr>
+        <tr class="form-group">
+            <td class="form-label">
+            <a href="/reservation" class="btn btn-secondary">change dates</a>
+            </td>
+
+
+
+        </tr>
+
+
+</table>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr >
+                <th scope="col">KorbID</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each ="chair : ${chairs}">
+                <form  th:action="@{'/choose-service?chair=' + ${chair.korbId}}" method="post" >
+                <td> <button class="btn btn-primary" type="submit">
+                    <input  hidden   name='begin' th:attr="value = ${begin}">
+                    <input hidden    name='end' th:attr="value = ${end}">
+                        <span th:utext="${chair.korbId}">.....</span></button> </td>
+                 <td th:utext="${chair.status}">...</td>
+                </form>
+             </tr>
+             </tbody>
+         </table>
+     </div>
+
+
+
+ </main>
+
+ </body>
+ </html>
