@@ -33,7 +33,7 @@ public class ReservationTest {
 
 
     @Test
-    public void getAllReservations()
+    public void getAllReservation()
     {
         List<Reservation> list = new ArrayList<Reservation>();
         Reservation reservation1 = new Reservation(new Date(),new Date(),30.0,null,null,null);
